@@ -52,7 +52,7 @@ const ResetPassword = () => {
             <section className="text-gray-600 body-font relative ">
                 <div className="container px-5 py-24 mx-auto flex">
                     <div className="lg:w-1/3 md:w-1/2 bg-white rounded-lg p-8 flex flex-col  w-full mt-10 md:mt-0 relative z-10 mx-auto">
-                        <h2 className="text-gray-900 text-lg mb-1 font-medium title-font mx-auto">Reset Password</h2>
+                        <p className="text-gray-900 text-3xl mb-1 font-medium title-font mx-auto">Reset Password</p>
                         <form>
 
                             <div className="relative mb-4">
