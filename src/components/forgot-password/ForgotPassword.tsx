@@ -1,6 +1,8 @@
 import axios from 'axios'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { useNavigate } from 'react-router-dom'
+import { toast, ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 type FormData = {
     email: string;
@@ -24,16 +26,19 @@ const ForgotPassword = () => {
         await axios.post(`http://localhost:4000/auth/forgot-password`, payload).then((res) => {
             console.log("29", res)
             if (res?.data?.result) {
-                alert('Reset password code sent successfully')
-                navigate(`/reset-password/${payload.email}`)
+                toast.success('Reset password code sent successfully')
+                setTimeout(() => {
+                    navigate(`/reset-password/${payload.email}`)
+                }, 1500);
             } else {
-                alert("Enter wrong email id")
+                toast.error("Enter wrong email id")
             }
         })
     }
 
     return (
         <div>
+            <ToastContainer limit={1} autoClose={1000} />
             <section className="text-gray-600 body-font relative ">
                 <div className="container px-5 py-24 mx-auto flex">
                     <div className="lg:w-1/3 md:w-1/2 bg-white rounded-lg p-8 flex flex-col  w-full mt-10 md:mt-0 relative z-10 mx-auto">
